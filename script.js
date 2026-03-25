@@ -9,51 +9,6 @@
 // 4) distance(x1, y1, x2, y2): Euclidean distance
 
 // 5) quadratic(a, b, c): roots of ax^2 + bx + c = 0
-
-// random in range
-// function getRandomNum(max) {
-//   max = parseInt(max);
-//   if (isNaN(max || max < 1) return 0)
-//     return Math.floor(Math.random() * max) + 1;
-// }
-// for (let i = 0; i < 5)
-// // ----- Helpers -----
-// function $(id) { return document.getElementById(id); }
-// function setText(id, value) { $(id).textContent = String(value); }
-
-// // ----- Click Handlers (wire UI -> functions -> DOM) -----
-
-// function onMyFuncClick() {
-//   const val = myFunc();
-//   setText('outMyFunc', val);
-// }
-
-// function onRandomClick() {
-//   const max = $('maxRand').value;
-//   const val = getRandomNum(max);
-//   setText('outRandom', val);
-// }
-
-// function onAdderClick() {
-//   const x = $('addX').value;
-//   const y = $('addY').value;
-//   const sum = myAdder(x, y);
-//   setText('outAdder', sum);
-// }
-
-// function onDistanceClick() {
-//   const x1 = $('x1').value, y1 = $('y1').value;
-//   const x2 = $('x2').value, y2 = $('y2').value;
-//   const d = distance(x1, y1, x2, y2);
-//   setText('outDistance', d);
-// }
-
-// function onQuadraticClick() {
-//   const a = $('qa').value, b = $('qb').value, c = $('qc').value;
-//   const roots = quadratic(a, b, c);
-//   setText('outQuadratic', Array.isArray(roots) ? roots.join(', ') : roots);
-// }
-// 1) myFunc(): persistent counter
 let count = 0; 
 function myFunc() {
     count++;
@@ -72,7 +27,7 @@ function myAdder(x, y) {
     return Number(x) + Number(y);
 }
 
-// 4) distance(x1, y1, x2, y2): Euclidean distance
+// 4) distance(x1, y1, x2, y2)
 function distance(x1, y1, x2, y2) {
     // Formula: sqrt((x2 - x1)^2 + (y2 - y1)^2)
     let dx = Number(x2) - Number(x1);
@@ -80,7 +35,7 @@ function distance(x1, y1, x2, y2) {
     return Math.sqrt(dx * dx + dy * dy).toFixed(3);
 }
 
-// 5) quadratic(a, b, c): roots of ax^2 + bx + c = 0
+// 5) quadratic(a, b, c)
 function quadratic(a, b, c) {
     a = Number(a);
     b = Number(b);
@@ -90,21 +45,21 @@ function quadratic(a, b, c) {
     let realPart = (-b / (2 * a)).toFixed(3);
 
     if (disc > 0) {
-        // Two real roots
+      
         let r1 = ((-b + Math.sqrt(disc)) / (2 * a)).toFixed(3);
         let r2 = ((-b - Math.sqrt(disc)) / (2 * a)).toFixed(3);
         return [r1, r2];
     } else if (disc === 0) {
-        // One real root
+        
         return [realPart];
     } else {
-        // DIVE DEEPER: Imaginary roots
+        //imaginary bc im locked
         let imagPart = (Math.sqrt(-disc) / (2 * a)).toFixed(3);
         return [`${realPart}+${imagPart}i`, `${realPart}-${imagPart}i`];
     }
 }
 
-// ----- Helpers & Click Handlers (Keep as is) -----
+
 function $(id) { return document.getElementById(id); }
 function setText(id, value) { $(id).textContent = String(value); }
 
